@@ -9,17 +9,7 @@ Järjestelmän tarkoituksena on tarjota käyttäjälle lista olemassaolevista un
 
 Hän haluaa myös ystävilleen mahdollisuuden katsoa tätä parempaa tietokantaa, joten järjestelmään pitää rekisteröitymis- ja kirjautumismahdollisuus uusille käyttäjille. Heille annetaan oikeudet katsoa olemassaolevia unitteja.
 
-Toimintoja:
-
-- Unittien tietojen lisääminen, muokkaus ja poisto yleiseen DB:hen (Ylläpitäjä)
-- Unittien hakuominaisuus eri kriteereillä
-- Käyttäjän rekisteröityminen
-- Ylläpitäjän ja käyttäjän kirjautuminen
-- Unittien tallentaminen omaan sivustoon
-- Lisätietojen lisääminen omiin unitteihin
-
-(MAHDOLLINEN LISÄ jos aikaa riittää xD)
-- Yleisten buildordereiden lisäys, muokkaus ja poisto
-- Omien buildordereiden lisäys, muokkaus ja poisto
+User Stories:
+(documentation/userstories.md)
 
 
