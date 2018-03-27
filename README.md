@@ -9,7 +9,6 @@ Järjestelmän tarkoituksena on tarjota käyttäjälle lista olemassaolevista un
 
 Hän haluaa myös ystävilleen mahdollisuuden katsoa tätä parempaa tietokantaa, joten järjestelmään pitää rekisteröitymis- ja kirjautumismahdollisuus uusille käyttäjille. Heille annetaan oikeudet katsoa olemassaolevia unitteja.
 
-User Stories:
-(documentation/userstories.md)
+[User stories](documentation/userstories.md)
 
 
