@@ -8,7 +8,17 @@ class Task(db.Model):
 
     name = db.Column(db.String(144), nullable=False)
     done = db.Column(db.Boolean, nullable=False)
+    supply = db.Column(db.Integer)
+    minerals = db.Column(db.Integer)
+    gas = db.Column(db.Integer)
+    buildtime = db.Column(db.Integer)
+
+   
 
     def __init__(self, name):
         self.name = name
         self.done = False
+        self.supply = 0
+        self.minerals = 0
+        self.gas = 0
+        self.buildtime = 0

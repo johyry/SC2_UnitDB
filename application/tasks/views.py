@@ -1,6 +1,7 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.tasks.models import Task
+from application.tasks.forms import TaskForm
 
 @app.route("/tasks", methods=["GET"])
 def tasks_index():
@@ -8,20 +9,24 @@ def tasks_index():
 
 @app.route("/tasks/new/")
 def tasks_form():
-    return render_template("tasks/new.html")
+    return render_template("tasks/new.html", form = TaskForm())
 
 @app.route("/tasks/<task_id>/", methods=["POST"])
-def tasks_set_done(task_id):
+def edit_unit(task_id):
 
     t = Task.query.get(task_id)
-    t.done = True
-    db.session().commit()
   
     return redirect(url_for("tasks_index"))
 
 @app.route("/tasks/", methods=["POST"])
 def tasks_create():
-    t = Task(request.form.get("name"))
+    form = TaskForm(request.form)
+
+    t = Task(form.name.data)
+    t.supply = form.supply.data
+    t.minerals = form.minerals.data
+    t.gas = form.gas.data
+    t.buildtime = form.buildtime.data
 
     db.session().add(t)
     db.session().commit()
