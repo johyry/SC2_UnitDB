@@ -9,15 +9,15 @@
       <th>Gas</th>
       <th>Build time</th>
     </tr>
-    {% for task in tasks %}
+    {% for unit in units %}
     <tr>
-      <td>{{ task.name }}</td>
-      <td>{{ task.supply }}</td>
-      <td>{{ task.minerals }}</td>
-      <td>{{ task.gas }}</td>
-      <td>{{ task.buildtime }}</td>
+      <td>{{ unit.name }}</td>
+      <td>{{ unit.supply }}</td>
+      <td>{{ unit.minerals }}</td>
+      <td>{{ unit.gas }}</td>
+      <td>{{ unit.buildtime }}</td>
       <td>
-	<form method="POST" action="{{ url_for('edit_unit', task_id=task.id) }}">
+	<form method="POST" action="{{ url_for('edit_unit', unit_id=unit.id) }}">
 	  <input type="submit" value="Edit unit (NOT YET IMPLEMENTED)"/>
 	</form>
       </td>

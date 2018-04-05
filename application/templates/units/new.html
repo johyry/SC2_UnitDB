@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('unit_create') }}">
+    <table>
+      <tr>
+				<td>
+					{{ form.name.label }}
+				</td>
+				<td>
+					{{ form.name }}
+				</td>
+				<td>
+					<ul>
+						{% for error in form.name.errors %}
+						<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+      </tr>
+      <tr>
+				<td>
+					{{ form.supply.label }}
+				</td>
+				<td>
+					{{ form.supply }}
+				</td>
+				<td>
+					<ul>
+						{% for error in form.supply.errors %}
+						<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+      </tr>
+      <tr>
+				<td>
+					{{ form.minerals.label }}
+				</td>
+				<td>
+					{{ form.minerals }}
+				</td>
+				<td>
+					<ul>
+						{% for error in form.minerals.errors %}
+						<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+      </tr>
+      <tr>
+				<td>
+					{{ form.gas.label }}
+				</td>
+				<td>
+					{{ form.gas }}
+				</td>
+				<td>
+					<ul>
+						{% for error in form.gas.errors %}
+						<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+      </tr>
+      <tr>
+				<td>
+					{{ form.buildtime.label }}
+				</td>
+				<td>
+					{{ form.buildtime }}
+				</td><td>
+					<ul>
+						{% for error in form.buildtime.errors %}
+						<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+      </tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Add a new unit"/>
+	</td>
+      </tr>
+  </form>
+{% endblock %}
