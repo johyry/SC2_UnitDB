@@ -1,15 +1,24 @@
 from flask_wtf import FlaskForm
-from wtforms import TextField, StringField, validators
+from wtforms import TextField, StringField, validators, IntegerField
+from application.units.models import Unit
+ 
 
 class UnitForm(FlaskForm):
     name = TextField("Unit name", [validators.Length(min=2)])
-    supply = TextField("Supply", [validators.NumberRange(0, 10, message='Input must be positive')])
-    minerals = TextField("Minerals", [validators.NumberRange(0, message='Input must be positive')])
-    gas = TextField("Gas", [validators.NumberRange(0, message='Input must be positive')])
-    buildtime= TextField("Buildtime", [validators.NumberRange(0, message='Input must be positive')])
+    supply = IntegerField("Supply", [validators.NumberRange(min=0, message='Input must be positive')])
+    minerals = IntegerField("Minerals", [validators.NumberRange(min=0, message='Input must be positive')])
+    gas = IntegerField("Gas", [validators.NumberRange(min=0, message='Input must be positive')])
+    buildtime= IntegerField("Buildtime", [validators.NumberRange(min=0, message='Input must be positive')])
 
+    class Meta:
+        csrf = False
 
-#class EditUnitForm()
+class EditUnitForm(FlaskForm):
+    name = TextField("Unit name", Unit.name, [validators.Length(min=2)])
+    supply = IntegerField("Supply", [validators.NumberRange(min=0, message='Input must be positive')])
+    minerals = IntegerField("Minerals", [validators.NumberRange(min=0, message='Input must be positive')])
+    gas = IntegerField("Gas", [validators.NumberRange(min=0, message='Input must be positive')])
+    buildtime= IntegerField("Buildtime", [validators.NumberRange(min=0, message='Input must be positive')])
  
     class Meta:
         csrf = False

@@ -1,7 +1,7 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.units.models import Unit
-from application.units.forms import UnitForm
+from application.units.forms import UnitForm, EditUnitForm
 
 @app.route("/units", methods=["GET"])
 def units_index():
@@ -16,17 +16,16 @@ def edit_unit(unit_id):
 
     t = Unit.query.get(unit_id)
   
-    return render_template("units/edit.html", form = UnitForm())
+    return render_template("units/edit.html", form = EditUnitForm())
 
-@app.route("/units/", methods=["POST"])
+""" @app.route("/units/edit", methods=["POST"])
 def units_edit():
-
-    return redirect(url_for("units_index"))
+    return redirect(url_for("units_index")) """
 
 @app.route("/units/", methods=["POST"])
 def unit_create():
     form = UnitForm(request.form)
-
+    
     if not form.validate():
         return render_template("units/new.html", form = form)
 
