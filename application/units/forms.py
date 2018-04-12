@@ -14,7 +14,7 @@ class UnitForm(FlaskForm):
         csrf = False
 
 class EditUnitForm(FlaskForm):
-    name = TextField("Unit name", Unit.name, [validators.Length(min=2)])
+    name = TextField("Unit name", [validators.Length(min=2)])
     supply = IntegerField("Supply", [validators.NumberRange(min=0, message='Input must be positive')])
     minerals = IntegerField("Minerals", [validators.NumberRange(min=0, message='Input must be positive')])
     gas = IntegerField("Gas", [validators.NumberRange(min=0, message='Input must be positive')])

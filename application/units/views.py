@@ -19,11 +19,10 @@ def units_form():
 def edit_unit(unit_id):
 
     unit = Unit.query.get(unit_id)
-    form = EditUnitForm(unit)
+    form = EditUnitForm(request.form)
     if request.method == 'POST':
         form.populate_obj(unit)
-        unit.save
-        redirect('edit_profile')
+        redirect('edit_unit')
   
     return render_template("units/edit.html", form = form)
 
@@ -31,6 +30,7 @@ def edit_unit(unit_id):
 @login_required
 def units_edit():
 
+    
 
 
     return redirect(url_for("units_index"))
