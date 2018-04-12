@@ -17,9 +17,10 @@
       <td>{{ unit.gas }}</td>
       <td>{{ unit.buildtime }}</td>
       <td>
-	<form method="POST" action="{{ url_for('edit_unit', unit_id=unit.id) }}">
+        <a href="{{ url_for('edit_unit', unit_id=unit.id) }}">Edit unit</a>
+	<!-- <form method="POST" action="{{ url_for('edit_unit', unit_id=unit.id) }}">
 	  <input type="submit" value="Edit unit (NOT YET IMPLEMENTED)"/>
-	</form>
+	</form> -->
       </td>
     </tr>
     {% endfor %}

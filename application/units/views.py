@@ -1,5 +1,5 @@
 from application import app, db
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, abort
 from application.units.models import Unit
 from application.units.forms import UnitForm, EditUnitForm
 from flask_login import login_required, current_user
@@ -14,17 +14,43 @@ def units_index():
 def units_form():
     return render_template("units/new.html", form = UnitForm())
 
-@app.route("/units/edit/<unit_id>/", methods=["POST", "GET"])
+@app.route("/units/edit/<unit_id>/", methods=["GET", "POST"])
 @login_required
 def edit_unit(unit_id):
 
     unit = Unit.query.get(unit_id)
     form = EditUnitForm(request.form)
+    
+
+    if not unit:
+        abort(403)
+    
+    form.name.data = unit.name
+    form.supply.data = unit.supply
+    form.minerals.data = unit.minerals
+    form.gas.data = unit.gas
+    form.buildtime.data = unit.buildtime
+
+
     if request.method == 'POST':
-        form.populate_obj(unit)
-        redirect('edit_unit')
+        unit = Unit.query.get(unit_id)
+        
+        form = EditUnitForm(request.form)
+        unit.name = form.name.data
+        unit.supply = form.supply.data
+        unit.minerals = form.minerals.data
+        unit.gas = form.gas.data
+        unit.buildtime = form.buildtime.data
+
+        print('dataa: ', unit.name, unit.supply, unit.minerals, unit.gas, unit.buildtime)
+
+        db.session().commit()
+
+
+
+        return redirect('units_index')
   
-    return render_template("units/edit.html", form = form)
+    return render_template("units/edit.html", form = form, unit = unit)
 
 @app.route("/units/edit", methods=["POST"])
 @login_required
