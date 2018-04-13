@@ -7,7 +7,7 @@ class BuildorderForm(FlaskForm):
     name = TextField("Buildorder name", [validators.Length(min=2)])
     description = StringField("Description")
     intro = StringField("Introduction")
-    vod = StringField("VOD")
+    vod = StringField("VOD", [validators.Length(max=100)])
     details = StringField("Buildorder")
     analysis = StringField("Analysis")
 
@@ -18,7 +18,7 @@ class EditBuildorderForm(FlaskForm):
     name = TextField("Buildorder name", [validators.Length(min=2)])
     description = StringField("Description")
     intro = StringField("Introduction")
-    vod = StringField("VOD")
+    vod = StringField("VOD", [validators.Length(max=100)])
     details = StringField("Buildorder")
     analysis = StringField("Analysis")
     
