@@ -19,6 +19,9 @@ from application import views
 from application.units import models
 from application.units import views
 
+from application.buildorders import models 
+from application.buildorders import views
+
 from application.auth import models 
 from application.auth import views
 

@@ -15,8 +15,10 @@
       <a href="{{ url_for('auth_createuserform') }}">Create new user</a>
       {% endif %}
       <ul>
-	<li><a href="{{ url_for('units_index') }}">List units</a></li>
-	<li><a href="{{ url_for('units_form') }}">Add an unit</a></li>
+	  <li><a href="{{ url_for('units_index') }}">List units</a></li>
+    <li><a href="{{ url_for('units_form') }}">Add an unit</a></li>
+    <li><a href="{{ url_for('buildorders_index') }}">List buildorders</a></li>
+	  <li><a href="{{ url_for('buildorders_form') }}">Add a buildorder</a></li>
       </ul>
       
       {% block body %}
