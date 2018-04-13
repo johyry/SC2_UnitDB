@@ -18,21 +18,9 @@ def units_form():
 @login_required
 def edit_unit(unit_id):
 
-    unit = Unit.query.get(unit_id)
-    form = EditUnitForm(request.form)
-    
-
-    if not unit:
-        abort(403)
-    
-    form.name.data = unit.name
-    form.supply.data = unit.supply
-    form.minerals.data = unit.minerals
-    form.gas.data = unit.gas
-    form.buildtime.data = unit.buildtime
-
-
     if request.method == 'POST':
+        print('asdsadasdsaddsa')
+
         unit = Unit.query.get(unit_id)
         
         form = EditUnitForm(request.form)
@@ -48,15 +36,33 @@ def edit_unit(unit_id):
 
 
 
-        return redirect('units_index')
+        return redirect(url_for("units_index"))
+
+    unit = Unit.query.get(unit_id)
+    form = EditUnitForm(request.form)
+    
+
+    if not unit:
+        abort(403)
+    
+    form.name.data = unit.name
+    form.supply.data = unit.supply
+    form.minerals.data = unit.minerals
+    form.gas.data = unit.gas
+    form.buildtime.data = unit.buildtime
+
+
+    
   
     return render_template("units/edit.html", form = form, unit = unit)
 
-@app.route("/units/edit", methods=["POST"])
+@app.route("/units/delete/<unit_id>/", methods=["GET"])
 @login_required
-def units_edit():
+def delete_unit(unit_id):
 
-    
+    unit = Unit.query.get(unit_id)
+    db.session.delete(unit)
+    db.session().commit()
 
 
     return redirect(url_for("units_index"))
