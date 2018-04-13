@@ -19,18 +19,22 @@ def units_form():
 def edit_unit(unit_id):
 
     if request.method == 'POST':
-        print('asdsadasdsaddsa')
+        
 
         unit = Unit.query.get(unit_id)
         
         form = EditUnitForm(request.form)
+
+        if not form.validate():
+            return render_template("units/edit.html", form = form, unit = unit)
+
         unit.name = form.name.data
         unit.supply = form.supply.data
         unit.minerals = form.minerals.data
         unit.gas = form.gas.data
         unit.buildtime = form.buildtime.data
 
-        print('dataa: ', unit.name, unit.supply, unit.minerals, unit.gas, unit.buildtime)
+        
 
         db.session().commit()
 
