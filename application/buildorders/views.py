@@ -8,6 +8,13 @@ from flask_login import login_required, current_user
 def buildorders_index():
     return render_template("buildorders/list.html", buildorders = Buildorder.query.all())
 
+@app.route("/buildorders/mybuildorders", methods=["GET"])
+@login_required
+def buildorders_myindex():
+    
+ 
+    return render_template("buildorders/list.html", buildorders = Buildorder.query.filter_by(account_id = current_user.id))
+
 @app.route("/buildorders/new/")
 @login_required
 def buildorders_form():

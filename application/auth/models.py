@@ -12,7 +12,8 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    tasks = db.relationship("Buildorder", backref='account', lazy=True)
+    buildorders = db.relationship("Buildorder", backref='account', lazy=True)
+    units = db.relationship("Unit", backref='account', lazy=True)
 
 
     def __init__(self, name, username, password):

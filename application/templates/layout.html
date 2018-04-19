@@ -38,6 +38,16 @@
                 
               </div>
             </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown02">
+                <a class="dropdown-item" href="{{ url_for('buildorders_myindex') }}">List My Buildorders</a>
+                <a class="dropdown-item" href="{{ url_for('units_myindex') }}">List My Units</a>
+                
+              </div>
+            </li>
+            {% endif %}
           </ul>
                   
         <div class="form-inline mt-2 mt-md-0">

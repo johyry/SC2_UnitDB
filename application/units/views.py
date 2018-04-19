@@ -9,6 +9,13 @@ from flask_login import login_required, current_user
 def units_index():
     return render_template("units/list.html", units = Unit.query.all())
 
+@app.route("/units/myunits/", methods=["GET"])
+@login_required
+def units_myindex():
+    return render_template("units/list.html", units = Unit.query.filter_by(account_id = current_user.id))
+
+
+
 @app.route("/units/new/")
 @login_required
 def units_form():
@@ -84,6 +91,8 @@ def unit_create():
     t.minerals = form.minerals.data
     t.gas = form.gas.data
     t.buildtime = form.buildtime.data
+
+    t.account_id = current_user.id
 
     db.session().add(t)
     db.session().commit()
