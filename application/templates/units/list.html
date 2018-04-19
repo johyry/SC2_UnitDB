@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+
+<div class="table-responsive">
+  <table class="table">
     <tr>
       <th>Unit</th>
       <th>Supply</th>
@@ -26,4 +28,8 @@
     </tr>
     {% endfor %}
   </table>
-{% endblock %}
+  {% endblock %}
+
+</div>
+
+  

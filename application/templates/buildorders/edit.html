@@ -4,19 +4,49 @@
 <form method="POST" action="{{ url_for('edit_buildorder', buildorder_id = buildorder.id) }}">
     <table>
         <tr>
-                  <td>
-                      {{ form.name.label }}
-                  </td>
-                  <td>
-                      {{ form.name }}
-                  </td>
-                  <td>
-                      <ul>
-                          {% for error in form.name.errors %}
-                          <li>{{ error }}</li>
-                          {% endfor %}
-                      </ul>
-                  </td>
+            <td>
+                {{ form.name.label }}
+            </td>
+            <td>
+                {{ form.name }}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.buildtype.label }}
+            </td>
+            <td>
+                {{ form.buildtype }}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.buildtype.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.race.label }}
+            </td>
+            <td>
+                {{ form.race }}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.race.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
         </tr>
         <tr>
                   <td>

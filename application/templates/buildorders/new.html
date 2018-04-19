@@ -17,7 +17,37 @@
 						{% endfor %}
 					</ul>
 				</td>
-      </tr>
+	  </tr>
+	  <tr>
+		<td>
+			{{ form.buildtype.label }}
+		</td>
+		<td>
+			{{ form.buildtype }}
+		</td>
+		<td>
+			<ul>
+				{% for error in form.buildtype.errors %}
+				<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+	</td>
+		</tr>
+		<tr>
+		<td>
+			{{ form.race.label }}
+		</td>
+		<td>
+			{{ form.race }}
+		</td>
+		<td>
+			<ul>
+				{% for error in form.race.errors %}
+				<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+		</td>
+	</tr>
       <tr>
 				<td>
 					{{ form.description.label }}

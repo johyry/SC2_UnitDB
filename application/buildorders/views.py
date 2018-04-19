@@ -28,6 +28,8 @@ def edit_buildorder(buildorder_id):
             return render_template("buildorders/edit.html", form = form, buildorder = buildorder)
 
         buildorder.name = form.name.data
+        buildorder.buildtype = form.buildtype.data
+        buildorder.race = form.race.data
         buildorder.description = form.description.data
         buildorder.intro = form.intro.data
         buildorder.vod = form.vod.data
@@ -51,6 +53,8 @@ def edit_buildorder(buildorder_id):
         abort(403)
     
     form.name.data = buildorder.name
+    form.buildtype.data = buildorder.buildtype
+    form.race.data = buildorder.race
     form.description.data = buildorder.description
     form.intro.data = buildorder.intro
     form.vod.data = buildorder.vod
@@ -82,11 +86,16 @@ def buildorder_create():
         return render_template("buildorders/new.html", form = form)
 
     buildorder = Buildorder(form.name.data)
+    buildorder.buildtype = form.buildtype.data
+    buildorder.race = form.buildtype.data
     buildorder.description = form.description.data
     buildorder.intro = form.intro.data
     buildorder.vod = form.vod.data
     buildorder.details = form.details.data
     buildorder.analysis = form.analysis.data
+    buildorder.account_id = current_user.id
+
+    
 
     db.session().add(buildorder)
     db.session().commit()
@@ -105,6 +114,8 @@ def single_buildorder(buildorder_id):
         abort(403)
     
     form.name.data = buildorder.name
+    form.buildtype.data = buildorder.buildtype
+    form.race.data = buildorder.race
     form.description.data = buildorder.description
     form.intro.data = buildorder.intro
     form.vod.data = buildorder.vod

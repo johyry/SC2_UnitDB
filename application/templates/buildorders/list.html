@@ -7,8 +7,10 @@
       
     </tr>
     {% for buildorder in buildorders %}
+
     <tr>
       <td><a href="{{ url_for('single_buildorder', buildorder_id=buildorder.id) }}">{{ buildorder.name }}</a></td>
+      <td>By: {{ buildorder.account_id }}</td>
       
       <td>
         <a href="{{ url_for('edit_buildorder', buildorder_id=buildorder.id) }}">Edit buildorder</a>
