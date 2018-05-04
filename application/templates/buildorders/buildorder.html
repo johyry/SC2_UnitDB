@@ -1,9 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<a href="{{ url_for('edit_buildorder', buildorder_id=buildorder.id) }}">Edit buildorder</a>
+
+{% if current_user.id == buildorder.account_id %}
+
+<a href="{{ url_for('edit_buildorder', buildorder_id=buildorder.id) }}">Edit</a>
 </br>
-<a href="{{ url_for('delete_buildorder', buildorder_id=buildorder.id) }}">Delete buildorder</a>
+<a href="{{ url_for('delete_buildorder', buildorder_id=buildorder.id) }}">Delete</a>
+
+{% endif %}
+
 
   <h1>{{ form.name.data }}</h1>
 

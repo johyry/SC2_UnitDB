@@ -13,7 +13,7 @@ class CreateUserForm(FlaskForm):
     name = StringField("Name")
     username = StringField("Username", [
         validators.Regexp('\w+', message="Username must contain only letters numbers or underscore"),
-        validators.Length(min=5, max=25, message="Username must be betwen 5 & 25 characters")
+        validators.Length(min=5, max=25, message="Username must be between 5 & 25 characters")
 
     ])
     password = PasswordField("Password",

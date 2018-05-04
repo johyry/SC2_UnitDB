@@ -10,6 +10,7 @@
       <th>Minerals</th>
       <th>Gas</th>
       <th>Build time</th>
+      <th>Creator</th>
     </tr>
     {% for unit in units %}
     <tr>
@@ -18,17 +19,21 @@
       <td>{{ unit.minerals }}</td>
       <td>{{ unit.gas }}</td>
       <td>{{ unit.buildtime }}</td>
+      <td>{{ unit.find_creatorName(unit.account_id) }}</td>
+
+      {% if current_user.id == unit.account_id %}
       <td>
-        <a href="{{ url_for('edit_unit', unit_id=unit.id) }}">Edit unit</a>
-        <a href="{{ url_for('delete_unit', unit_id=unit.id) }}">Delete unit</a>
-	<!-- <form method="POST" action="{{ url_for('edit_unit', unit_id=unit.id) }}">
-	  <input type="submit" value="Edit unit (NOT YET IMPLEMENTED)"/>
-	</form> -->
+        <a href="{{ url_for('edit_unit', unit_id=unit.id) }}">Edit</a>
       </td>
+      <td>
+        <a href="{{ url_for('delete_unit', unit_id=unit.id) }}">Delete</a>
+	    </td>
+      {% endif %}
+
     </tr>
     {% endfor %}
   </table>
-  {% endblock %}
+{% endblock %}
 
 </div>
 

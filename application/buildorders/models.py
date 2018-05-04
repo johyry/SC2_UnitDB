@@ -1,5 +1,7 @@
 from application import db
 from application.models import Base
+from sqlalchemy.sql import text
+
 
 
 class Buildorder(Base):
@@ -25,12 +27,18 @@ class Buildorder(Base):
 
 
     @staticmethod
-    def find_creatorName():
-        stmt = text("SELECT Account.name FROM Account"
-                     " WHERE Buildorder.account_id = Account.id")
+    def find_creatorName(account_id):
+
+        stmt = text("SELECT Account.name FROM Account, Buildorder"
+                     " WHERE Buildorder.account_id = Account.id"
+                     " AND Account.id = :account_id"
+                     ).params(account_id=account_id)
+                     
         res = db.engine.execute(stmt)
 
         response = []
+        for row in res:
+            response.append({row[0]})
         
 
         return response

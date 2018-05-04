@@ -94,7 +94,7 @@ def buildorder_create():
 
     buildorder = Buildorder(form.name.data)
     buildorder.buildtype = form.buildtype.data
-    buildorder.race = form.buildtype.data
+    buildorder.race = form.race.data
     buildorder.description = form.description.data
     buildorder.intro = form.intro.data
     buildorder.vod = form.vod.data
