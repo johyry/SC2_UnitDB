@@ -1,87 +1,102 @@
 {% extends "layout.html" %}
   
 {% block body %}
+
+<!-- PAGE FOR EDITING UNITS -->
+
 <form method="POST" action="{{ url_for('edit_unit', unit_id = unit.id) }}">
     <table>
+
+		<!-- Name -->
       <tr>
-				<td>
-	 			 {{ form.name.label }}
-				</td>
-				<td>
-					{{ form.name }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.name.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+	 		 {{ form.name.label }}
+			</td>
+			<td>
+				{{ form.name }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.name.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Supply -->
       <tr>
-				<td>
-					{{ form.supply.label }}
-				</td>
-				<td>
-					{{ form.supply }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.supply.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.supply.label }}
+			</td>
+			<td>
+				{{ form.supply }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.supply.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Minerals -->
       <tr>
-				<td>
-					{{ form.minerals.label }}
-				</td>
-				<td>
-					{{ form.minerals }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.minerals.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.minerals.label }}
+			</td>
+			<td>
+				{{ form.minerals }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.minerals.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Gas -->
       <tr>
-				<td>
-					{{ form.gas.label }}
-				</td>
-				<td>
-					{{ form.gas }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.gas.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.gas.label }}
+			</td>
+			<td>
+				{{ form.gas }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.gas.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Buildtime -->
       <tr>
-				<td>
-					{{ form.buildtime.label }}
-				</td>
-				<td>
-					{{ form.buildtime }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.buildtime.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.buildtime.label }}
+			</td>
+			<td>
+				{{ form.buildtime }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.buildtime.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Submit -->
       <tr>
-				<td colspan="2">
-					<input type="submit" value="Edit unit"/>
-				</td>
+			<td colspan="2">
+				<input type="submit" value="Edit unit"/>
+			</td>
       </tr>
   </form>
 {% endblock %}

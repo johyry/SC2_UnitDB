@@ -8,12 +8,10 @@ class Buildorder(Base):
 
     name = db.Column(db.String(144), nullable=False)
 
-    ## List details
 
     buildtype = db.Column(db.String(30))
     race = db.Column(db.String(10))
 
-    ## In-dept details
     description = db.Column(db.String(10000))
     intro = db.Column(db.String(10000))
     vod = db.Column(db.String(144))
@@ -26,10 +24,12 @@ class Buildorder(Base):
         self.name = name
 
 
-    @staticmethod
-    def find_creatorName(account_id):
+    # query for creator username (query result: account.username)
 
-        stmt = text("SELECT Account.name FROM Account, Buildorder"
+    @staticmethod
+    def find_creatorUserName(account_id):
+
+        stmt = text("SELECT Account.username FROM Account, Buildorder"
                      " WHERE Buildorder.account_id = Account.id"
                      " AND Account.id = :account_id"
                      ).params(account_id=account_id)

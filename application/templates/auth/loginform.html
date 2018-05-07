@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
 
+
+<!-- PAGE FOR USER LOGIN -->
+
 {% block body %}
 {{ error }}
 <form method="POST" action="{{ url_for('auth_login') }}">
   <table>
+
+    <!-- Username -->
     <tr>
       <td>
 	{{ form.username.label }}
@@ -19,6 +24,8 @@
             </ul>
       </td>
     </tr>
+
+    <!-- Password -->
     <tr>
       <td>
 	{{ form.password.label }}
@@ -34,6 +41,8 @@
             </ul>
       </td>
     </tr>
+
+    <!-- Submit -->
     <tr>
       <td colspan="2">
 	<input type="submit" value="Login"/>

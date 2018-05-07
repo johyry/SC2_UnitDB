@@ -2,6 +2,8 @@
 
 {% block body %}
 
+<!-- PAGE FOR LISTING ALL UNITS -->
+
 <div class="table-responsive">
   <table class="table">
     <tr>
@@ -19,8 +21,11 @@
       <td>{{ unit.minerals }}</td>
       <td>{{ unit.gas }}</td>
       <td>{{ unit.buildtime }}</td>
-      <td>{{ unit.find_creatorName(unit.account_id) }}</td>
+      <td>{{ unit.find_creatorUserName(unit.account_id) }}</td>
 
+
+
+      <!-- Shows buttons for edit and delete IF current user == creator -->
       {% if current_user.id == unit.account_id %}
       <td>
         <a href="{{ url_for('edit_unit', unit_id=unit.id) }}">Edit</a>

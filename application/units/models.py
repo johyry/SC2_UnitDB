@@ -17,10 +17,12 @@ class Unit(Base):
         self.name = name
 
 
-    @staticmethod
-    def find_creatorName(account_id):
+    # query to get creator username, query result account.username
 
-        stmt = text("SELECT Account.name FROM Account, Unit"
+    @staticmethod
+    def find_creatorUserName(account_id):
+
+        stmt = text("SELECT Account.username FROM Account, Unit"
                      " WHERE Unit.account_id = Account.id"
                      " AND Account.id = :account_id"
                      ).params(account_id=account_id)

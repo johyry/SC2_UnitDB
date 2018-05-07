@@ -1,23 +1,30 @@
 {% extends "layout.html" %}
   
 {% block body %}
+
+<!-- PAGE FOR CREATING BUILDORDER -->
+
 <form method="POST" action="{{ url_for('buildorder_create') }}">
     <table>
+
+		<!-- Name -->
       <tr>
-				<td>
-					{{ form.name.label }}
-				</td>
-				<td>
-					{{ form.name }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.name.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
+			<td>
+				{{ form.name.label }}
+			</td>
+			<td>
+				{{ form.name }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.name.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
 	  </tr>
+
+	  <!-- Buildtype -->
 	  <tr>
 		<td>
 			{{ form.buildtype.label }}
@@ -31,9 +38,11 @@
 				<li>{{ error }}</li>
 				{% endfor %}
 			</ul>
-	</td>
-		</tr>
-		<tr>
+		</td>
+	  </tr>
+
+	  <!-- Race -->
+	  <tr>
 		<td>
 			{{ form.race.label }}
 		</td>
@@ -47,67 +56,77 @@
 				{% endfor %}
 			</ul>
 		</td>
-	</tr>
+	  </tr>
+
+	  <!-- Description -->
       <tr>
-				<td>
-					{{ form.description.label }}
-				</td>
-				<td>
-					{{ form.description }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.description.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.description.label }}
+			</td>
+			<td>
+				{{ form.description }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.description.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Introduction -->
       <tr>
-				<td>
-					{{ form.intro.label }}
-				</td>
-				<td>
-					{{ form.intro }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.intro.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.intro.label }}
+			</td>
+			<td>
+				{{ form.intro }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.intro.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- VOD -->
       <tr>
-				<td>
-					{{ form.vod.label }}
-				</td>
-				<td>
-					{{ form.vod }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.vod.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.vod.label }}
+			</td>
+			<td>
+				{{ form.vod }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.vod.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Details -->
       <tr>
-				<td>
-					{{ form.details.label }}
-				</td>
-				<td>
-					{{ form.details }}
-				</td>
-				<td>
-					<ul>
-						{% for error in form.details.errors %}
-						<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				</td>
-      </tr>
+			<td>
+				{{ form.details.label }}
+			</td>
+			<td>
+				{{ form.details }}
+			</td>
+			<td>
+				<ul>
+					{% for error in form.details.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+	  </tr>
+	  
+	  <!-- Analysis -->
       <tr>
         <td>
             {{ form.analysis.label }}
@@ -122,11 +141,13 @@
                 {% endfor %}
             </ul>
         </td>
-</tr>
+	  </tr>
+
+	  <!-- Submit -->
       <tr>
-	<td colspan="2">
-	  <input type="submit" value="Add a new buildorder"/>
-	</td>
+		<td colspan="2">
+	 	 <input type="submit" value="Add a new buildorder"/>
+		</td>
       </tr>
   </form>
 {% endblock %}

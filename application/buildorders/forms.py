@@ -3,6 +3,9 @@ from wtforms import TextField, StringField, validators, IntegerField
 from application.units.models import Unit
  
 
+
+# New buildorder form
+
 class BuildorderForm(FlaskForm):
     name = TextField("Buildorder name", [validators.Length(max=100, message="Input must be less than 100 characters")])
 
@@ -18,8 +21,11 @@ class BuildorderForm(FlaskForm):
     class Meta:
         csrf = False
 
+
+# Edit buildorder form
+
 class EditBuildorderForm(FlaskForm):
-    name = TextField("Buildorder name", [validators.Length(min=2)])
+    name = TextField("Buildorder name", [validators.Length(max=100, message="Input must be less than 100 characters")])
 
     buildtype = StringField("Build type", [validators.Length(max=30, message='Input must be less than 30 characters')])
     race = StringField("Race", [validators.Length(max=10, message='Input must be less than 10 characters')])

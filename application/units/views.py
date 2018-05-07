@@ -4,10 +4,13 @@ from application.units.models import Unit
 from application.units.forms import UnitForm, EditUnitForm
 from flask_login import login_required, current_user
 
+# List all units
 
 @app.route("/units", methods=["GET"])
 def units_index():
     return render_template("units/list.html", units = Unit.query.all())
+
+# Lists current users units
 
 @app.route("/units/myunits/", methods=["GET"])
 @login_required
@@ -15,11 +18,15 @@ def units_myindex():
     return render_template("units/list.html", units = Unit.query.filter_by(account_id = current_user.id))
 
 
+# New unit, redirects to template
 
 @app.route("/units/new/")
 @login_required
 def units_form():
     return render_template("units/new.html", form = UnitForm())
+
+
+# Edit unit
 
 @app.route("/units/edit/<unit_id>/", methods=["GET", "POST"])
 @login_required
@@ -67,6 +74,8 @@ def edit_unit(unit_id):
   
     return render_template("units/edit.html", form = form, unit = unit)
 
+# Delete unit
+
 @app.route("/units/delete/<unit_id>/", methods=["GET"])
 @login_required
 def delete_unit(unit_id):
@@ -77,6 +86,9 @@ def delete_unit(unit_id):
 
 
     return redirect(url_for("units_index"))
+
+
+# Create unit, returns to index
 
 @app.route("/units/", methods=["POST"])
 @login_required

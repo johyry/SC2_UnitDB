@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 
+
+<!-- PAGE FOR VIEWING SINGLE BUILDORDER -->
+
+
 {% block body %}
 
+
+<!-- If current user == creator, will show edit and delete buttons -->
 {% if current_user.id == buildorder.account_id %}
 
 <a href="{{ url_for('edit_buildorder', buildorder_id=buildorder.id) }}">Edit</a>

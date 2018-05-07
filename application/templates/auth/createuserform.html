@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 
+<!-- PAGE FOR CREATING USER -->
+
 {% block body %}
 {{ error }}
 <form method="POST" action="{{ url_for('auth_createuser') }}">
   <table>
+
+      <!-- Name -->
     <tr>
       <td>
 	{{ form.name.label }}
@@ -19,7 +23,8 @@
             </ul>
       </td>
     </tr>
-    <tr>
+    
+    <!-- Username -->
     <tr>
       <td>
 	{{ form.username.label }}
@@ -35,6 +40,8 @@
             </ul>
       </td>
     </tr>
+
+    <!-- Password -->
     <tr>
       <td>
 	{{ form.password.label }}
@@ -50,6 +57,8 @@
             </ul>
       </td>
     </tr>
+
+    <!-- Repeat password -->
     <tr>
       <td>
 	{{ form.confirm.label }}
@@ -65,6 +74,8 @@
             </ul>
       </td>
     </tr>
+
+    <!-- Submit -->
     <tr>
       <td colspan="2">
 	<input type="submit" value="Create user"/>

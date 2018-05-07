@@ -3,6 +3,8 @@ from wtforms import TextField, StringField, validators, IntegerField
 from application.units.models import Unit
  
 
+# Unitform
+
 class UnitForm(FlaskForm):
     name = TextField("Unit name", [validators.Length(min=2)])
     supply = IntegerField("Supply", [validators.NumberRange(min=0, message='Input must be positive')])
@@ -12,6 +14,8 @@ class UnitForm(FlaskForm):
 
     class Meta:
         csrf = False
+
+# EditUnitForm
 
 class EditUnitForm(FlaskForm):
     name = TextField("Unit name", [validators.Length(min=2)])

@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, validators 
   
+# Login form
+
 class LoginForm(FlaskForm):
     username = StringField("Username")
     password = PasswordField("Password")
@@ -8,6 +10,8 @@ class LoginForm(FlaskForm):
     class Meta:
         csrf = False
 
+
+# Create user form
 
 class CreateUserForm(FlaskForm):
     name = StringField("Name")

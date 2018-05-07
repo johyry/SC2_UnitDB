@@ -2,6 +2,9 @@
 
 {% block body %}
 
+
+<!-- PAGE FOR LISTING ALL BUILDORDERS, DOESNT SHOW ALL DATA -->
+
 <div class="table-responsive">
   <table class="table">
     <tr>
@@ -12,10 +15,15 @@
     </tr>
     {% for buildorder in buildorders %}
     <tr>
+
+      <!-- Link to single buildorder, will show ALL DATA -->
       <td><a href="{{ url_for('single_buildorder', buildorder_id=buildorder.id) }}">{{ buildorder.name }}</a></td>
       <td>{{ buildorder.race }}</td>
       <td>{{ buildorder.buildtype }}</td>
-      <td>{{ buildorder.find_creatorName(buildorder.account_id) }}</td>
+      <td>{{ buildorder.find_creatorUserName(buildorder.account_id) }}</td>
+
+
+      <!-- Shows buttons for edit and delete on single buildorder IF current user == creator -->
 
       {% if current_user.id == buildorder.account_id %}
       <td>

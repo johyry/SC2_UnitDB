@@ -4,9 +4,15 @@ from application.buildorders.models import Buildorder
 from application.buildorders.forms import BuildorderForm, EditBuildorderForm
 from flask_login import login_required, current_user
 
+
+# Buildorder list
+
 @app.route("/buildorders", methods=["GET"])
 def buildorders_index():
     return render_template("buildorders/list.html", buildorders = Buildorder.query.all())
+
+
+# Lists current users buildorders
 
 @app.route("/buildorders/mybuildorders", methods=["GET"])
 @login_required
@@ -15,10 +21,16 @@ def buildorders_myindex():
  
     return render_template("buildorders/list.html", buildorders = Buildorder.query.filter_by(account_id = current_user.id))
 
+
+# New buildorder form
+
 @app.route("/buildorders/new/")
 @login_required
 def buildorders_form():
     return render_template("buildorders/new.html", form = BuildorderForm())
+
+
+# Edit buildorder
 
 @app.route("/buildorders/edit/<buildorder_id>/", methods=["GET", "POST"])
 @login_required
@@ -73,6 +85,9 @@ def edit_buildorder(buildorder_id):
   
     return render_template("buildorders/edit.html", form = form, buildorder = buildorder)
 
+
+# Delete buildorder
+
 @app.route("/buildorders/delete/<buildorder_id>/", methods=["GET"])
 @login_required
 def delete_buildorder(buildorder_id):
@@ -83,6 +98,9 @@ def delete_buildorder(buildorder_id):
 
 
     return redirect(url_for("buildorders_index"))
+
+
+# Creating buildorder
 
 @app.route("/buildorders/", methods=["POST"])
 @login_required
@@ -108,6 +126,9 @@ def buildorder_create():
     db.session().commit()
   
     return redirect(url_for("buildorders_index"))
+
+
+# View for single buildorder
 
 @app.route("/buildorders/<buildorder_id>", methods=["GET"])
 @login_required

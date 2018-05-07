@@ -8,6 +8,8 @@ from application.auth.forms import LoginForm
 from application.auth.forms import CreateUserForm
 
 
+# Login, redirects to index
+
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
     if request.method == "GET":
@@ -26,6 +28,9 @@ def auth_login():
     login_user(user)
     return redirect(url_for("index"))
 
+
+# Logout, redirects to index
+
 @app.route("/auth/logout")
 def auth_logout():
 
@@ -34,11 +39,15 @@ def auth_logout():
     return redirect(url_for("index"))  
 
 
+# Create user view
+
 @app.route("/auth/createuser")
 def auth_createuserform():
 
     return render_template("auth/createuserform.html", form = CreateUserForm())
 
+
+# Create new user
 
 @app.route("/auth/", methods=["POST"])
 def auth_createuser():
