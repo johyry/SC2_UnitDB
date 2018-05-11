@@ -1,16 +1,20 @@
-Toimintoja:
+# Functions:
 
-**Yleiset:**
-- Käyttäjän rekisteröityminen
-- Ylläpitäjän ja käyttäjän kirjautuminen
+## General functions
 
-**Ylläpitäjä:**
-- Ylläpitäjälle unittien tietojen lisääminen, muokkaus ja poisto
-- Ylläpitäjälle mahdollisuus yleisten buildordereiden lisäykseen, muokkaukseen ja poistoon
+- Creating an user
 
-**Käyttäjä:**
-- Buildordereiden tallentaminen käyttäjän omaan sivustoon
-- Unittien hakuominaisuus eri kriteereillä
-- Omien buildordereiden lisäys, muokkaus ja poisto
+- User login
+
+- Adding an Unit
+- Editing/Deleting Users own Units
+
+- Adding a buildorder
+- Editing/Deleting Users own Buildorders
+
+- Viewing other users Units and Buildorders
+
+- Viewing my own Units and Buildorders
+
 
 

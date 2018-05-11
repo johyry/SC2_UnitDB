@@ -40,7 +40,7 @@ def edit_buildorder(buildorder_id):
         
 
         buildorder = Buildorder.query.get(buildorder_id)
-        
+         
         form = BuildorderForm(request.form)
 
         if not form.validate():

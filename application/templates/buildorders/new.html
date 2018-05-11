@@ -7,143 +7,97 @@
 
 
 <form method="POST" action="{{ url_for('buildorder_create') }}">
-    <table>
-
-		<!-- Name -->
-      <tr>
-			<td>
-				{{ form.name.label }}
-			</td>
-			<td>
-				{{ form.name }}
-			</td>
-			<td>
-				<ul>
-					{% for error in form.name.errors %}
-					<li>{{ error }}</li>
-					{% endfor %}
-				</ul>
-			</td>
-	  </tr>
-
-	  <!-- Buildtype -->
-	  <tr>
-		<td>
-			{{ form.buildtype.label }}
-		</td>
-		<td>
-			{{ form.buildtype }}
-		</td>
-		<td>
-			<ul>
-				{% for error in form.buildtype.errors %}
-				<li>{{ error }}</li>
-				{% endfor %}
-			</ul>
-		</td>
-	  </tr>
-
-	  <!-- Race -->
-	  <tr>
-		<td>
-			{{ form.race.label }}
-		</td>
-		<td>
-			{{ form.race }}
-		</td>
-		<td>
-			<ul>
-				{% for error in form.race.errors %}
-				<li>{{ error }}</li>
-				{% endfor %}
-			</ul>
-		</td>
-	  </tr>
-
-	  <!-- Description -->
-      <tr>
-			<td>
-				{{ form.description.label }}
-			</td>
-			<td>
-				{{ form.description }}
-			</td>
-			<td>
-				<ul>
-					{% for error in form.description.errors %}
-					<li>{{ error }}</li>
-					{% endfor %}
-				</ul>
-			</td>
-	  </tr>
-	  
-	  <!-- Introduction -->
-      <tr>
-			<td>
-				{{ form.intro.label }}
-			</td>
-			<td>
-				{{ form.intro }}
-			</td>
-			<td>
-				<ul>
-					{% for error in form.intro.errors %}
-					<li>{{ error }}</li>
-					{% endfor %}
-				</ul>
-			</td>
-	  </tr>
-	  
-	  <!-- VOD -->
-      <tr>
-			<td>
-				{{ form.vod.label }}
-			</td>
-			<td>
-				{{ form.vod }}
-			</td>
-			<td>
-				<ul>
-					{% for error in form.vod.errors %}
-					<li>{{ error }}</li>
-					{% endfor %}
-				</ul>
-			</td>
-	  </tr>
-	  
-	  <!-- Details -->
-      <tr>
-			<td>
-				{{ form.details.label }}
-			</td>
-			<td>
-				{{ form.details }}
-			</td>
-			<td>
-				<ul>
-					{% for error in form.details.errors %}
-					<li>{{ error }}</li>
-					{% endfor %}
-				</ul>
-			</td>
-	  </tr>
-	  
-	  <!-- Analysis -->
-      <tr>
-        <td>
-            {{ form.analysis.label }}
-        </td>
-        <td>
-            {{ form.analysis }}
-        </td>
-        <td>
-            <ul>
-                {% for error in form.analysis.errors %}
+    <!-- Name -->
+    <div class="form-group">
+        <label for="name">{{ form.name.label }}</label>
+        {{ form.name(class="form-control", rows=1) }}
+        <ul>
+            {% for error in form.name.errors %}
                 <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        </td>
-	  </tr>
+            {% endfor %}
+        </ul>
+    
+    <!-- Buildtype -->
+    
+        <label for="buildtype">{{ form.buildtype.label }}</label>
+        {{ form.buildtype(class="form-control", rows=1) }}
+        <ul>
+            {% for error in form.buildtype.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    
+
+    <!-- Race -->
+    
+        <label for="race">{{ form.race.label }}</label>
+        {{ form.race(class="form-control", rows=1) }}
+        <ul>
+            {% for error in form.race.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    
+
+    <!-- Description -->
+    
+        <label for="description">{{ form.description.label }}</label>
+        {{ form.description(class="form-control", rows=5) }}
+        <ul>
+            {% for error in form.description.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    
+
+
+    <!-- Introduction -->
+    
+        <label for="intro">{{ form.intro.label }}</label>
+        {{ form.intro(class="form-control", rows=5) }}
+        <ul>
+            {% for error in form.intro.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    
+
+
+    <!-- VOD -->
+    
+        <label for="vod">{{ form.vod.label }}</label>
+        {{ form.vod(class="form-control", rows=1) }}
+        <ul>
+            {% for error in form.vod.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    
+
+
+    <!-- Details -->
+    
+        <label for="details">{{ form.details.label }}</label>
+        {{ form.details(class="form-control", rows=5) }}
+        <ul>
+            {% for error in form.details.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    
+
+
+    <!-- Analysis -->
+    
+        <label for="analysis">{{ form.analysis.label }}</label>
+        {{ form.analysis(class="form-control", rows=5) }}
+        <ul>
+            {% for error in form.analysis.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+ 
 
 	  <!-- Submit -->
       <tr>

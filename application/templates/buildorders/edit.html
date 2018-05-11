@@ -4,95 +4,93 @@
 
 <!-- PAGE FOR EDITING BUILDORDERS -->
 
-<form method="POST" 
-    action="{{ url_for('edit_buildorder', buildorder_id = buildorder.id) }}">
+<form method="POST" action="{{ url_for('edit_buildorder', buildorder_id = buildorder.id) }}">
 
 
     <!-- Name -->
     <div class="form-group">
         <label for="name">{{ form.name.label }}</label>
-        <TextArea class="form-control" id="name" rows="1">{{ form.name.data }}</TextArea>
+        {{ form.name(class="form-control", rows=1) }}
         <ul>
             {% for error in form.name.errors %}
                 <li>{{ error }}</li>
             {% endfor %}
         </ul>
-    </div>
-
+    
     <!-- Buildtype -->
-    <div class="form-group">
+    
         <label for="buildtype">{{ form.buildtype.label }}</label>
-        <textarea class="form-control" id="buildtype" rows="1">{{ form.buildtype.data }}</textarea>
+        {{ form.buildtype(class="form-control", rows=1) }}
         <ul>
             {% for error in form.buildtype.errors %}
             <li>{{ error }}</li>
             {% endfor %}
         </ul>
-    </div>
+    
 
     <!-- Race -->
-    <div class="form-group">
+    
         <label for="race">{{ form.race.label }}</label>
-        <textarea class="form-control" id="race" rows="1">{{ form.race.data }}</textarea>
+        {{ form.race(class="form-control", rows=1) }}
         <ul>
             {% for error in form.race.errors %}
             <li>{{ error }}</li>
             {% endfor %}
         </ul>
-    </div>
+    
 
     <!-- Description -->
-    <div class="form-group">
+    
         <label for="description">{{ form.description.label }}</label>
-        <textarea class="form-control" id="description" rows="5">{{ form.description.data }}</textarea>
+        {{ form.description(class="form-control", rows=5) }}
         <ul>
             {% for error in form.description.errors %}
             <li>{{ error }}</li>
             {% endfor %}
         </ul>
-    </div>
+    
 
 
     <!-- Introduction -->
-    <div class="form-group">
+    
         <label for="intro">{{ form.intro.label }}</label>
-        <textarea class="form-control" id="intro" rows="5">{{ form.intro.data }}</textarea>
+        {{ form.intro(class="form-control", rows=5) }}
         <ul>
             {% for error in form.intro.errors %}
             <li>{{ error }}</li>
             {% endfor %}
         </ul>
-    </div>
+    
 
 
     <!-- VOD -->
-    <div class="form-group">
+    
         <label for="vod">{{ form.vod.label }}</label>
-        <textarea class="form-control" id="vod" rows="1">{{ form.vod.data }}</textarea>
+        {{ form.vod(class="form-control", rows=1) }}
         <ul>
             {% for error in form.vod.errors %}
             <li>{{ error }}</li>
             {% endfor %}
         </ul>
-    </div>
+    
 
 
     <!-- Details -->
-    <div class="form-group">
+    
         <label for="details">{{ form.details.label }}</label>
-        <textarea class="form-control" id="details" rows="5">{{ form.details.data }}</textarea>
+        {{ form.details(class="form-control", rows=5) }}
         <ul>
             {% for error in form.details.errors %}
             <li>{{ error }}</li>
             {% endfor %}
         </ul>
-    </div>
+    
 
 
     <!-- Analysis -->
-    <div class="form-group">
+    
         <label for="analysis">{{ form.analysis.label }}</label>
-        <textarea class="form-control" id="analysis" rows="5">{{ form.analysis.data }}</textarea>
+        {{ form.analysis(class="form-control", rows=5) }}
         <ul>
             {% for error in form.analysis.errors %}
             <li>{{ error }}</li>
