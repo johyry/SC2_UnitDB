@@ -38,7 +38,7 @@ class Buildorder(Base):
 
         response = []
         for row in res:
-            response.append({row[0]})
+            response.append(row[0])
         
 
-        return response
+        return response[0]

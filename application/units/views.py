@@ -1,7 +1,7 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for, abort
 from application.units.models import Unit
-from application.units.forms import UnitForm, EditUnitForm
+from application.units.forms import UnitForm
 from flask_login import login_required, current_user
 
 # List all units
@@ -37,7 +37,7 @@ def edit_unit(unit_id):
 
         unit = Unit.query.get(unit_id)
         
-        form = EditUnitForm(request.form)
+        form = UnitForm(request.form)
 
         if not form.validate():
             return render_template("units/edit.html", form = form, unit = unit)
@@ -57,7 +57,7 @@ def edit_unit(unit_id):
         return redirect(url_for("units_index"))
 
     unit = Unit.query.get(unit_id)
-    form = EditUnitForm(request.form)
+    form = UnitForm(request.form)
     
 
     if not unit:

@@ -1,7 +1,7 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for, abort
 from application.buildorders.models import Buildorder
-from application.buildorders.forms import BuildorderForm, EditBuildorderForm
+from application.buildorders.forms import BuildorderForm
 from flask_login import login_required, current_user
 
 
@@ -41,7 +41,7 @@ def edit_buildorder(buildorder_id):
 
         buildorder = Buildorder.query.get(buildorder_id)
         
-        form = EditBuildorderForm(request.form)
+        form = BuildorderForm(request.form)
 
         if not form.validate():
             return render_template("buildorders/edit.html", form = form, buildorder = buildorder)
@@ -65,7 +65,7 @@ def edit_buildorder(buildorder_id):
         return redirect(url_for("buildorders_index"))
 
     buildorder = Buildorder.query.get(buildorder_id)
-    form = EditBuildorderForm(request.form)
+    form = BuildorderForm(request.form)
     
 
     if not buildorder:

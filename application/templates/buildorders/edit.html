@@ -11,7 +11,7 @@
     <!-- Name -->
     <div class="form-group">
         <label for="name">{{ form.name.label }}</label>
-        <textarea class="form-control" id="name" rows="1">{{ form.name.data }}</textarea>
+        <TextArea class="form-control" id="name" rows="1">{{ form.name.data }}</TextArea>
         <ul>
             {% for error in form.name.errors %}
                 <li>{{ error }}</li>
