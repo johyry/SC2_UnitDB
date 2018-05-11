@@ -9,6 +9,8 @@ A finnish professional StarCraft 2 player Serral has noticed that a wiki located
 
 The purpose of the system is to offer User a possibility to: add, edit and delete Units; add, edit and delete Buildorders; view other users Units and Buildorders.
 
+Here you can view some buildorders for the idea of what it looks like: https://lotv.spawningtool.com/build/.
+
 
 [User stories](documentation/userstories.md)
 
